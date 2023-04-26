@@ -96,7 +96,9 @@ app.config['MONGO_URI'] = os.getenv("MONGO_URI")
 celery = Celery()
 celery.config_from_object(celeryconfig)
 mongo = MongoClient(app.config['MONGO_URI'])
+#mongo db name
 db = mongo["docsgpt"]
+#collection name vectors
 vectors_collection = db["vectors"]
 
 async def async_generate(chain, question, chat_history):
